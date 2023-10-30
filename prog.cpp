@@ -75,6 +75,14 @@ class BinarySearchTree {
         std::cout << std::endl;
     }
 
+    int height(Node* node) {
+        if (node == nullptr) {
+            return 0;
+        }
+        int leftHeight = height(node->left);
+        int rightHeight = height(node->right);
+        return std::max(leftHeight, rightHeight) + 1;
+    }
 
 };
     
@@ -99,6 +107,9 @@ int main() {
     
     std::cout << "Postorder Traversal: ";
     bst.postorder();
+
+    int treeHeight = bst.getHeight();
+    std::cout << "Height of the BST: " << treeHeight << std::endl;
 
     return 0;
 }
