@@ -46,6 +46,21 @@ class BinarySearchTree {
         inorderTraversal(root);
         std::cout << std::endl;
     }
+    
+    void preorderTraversal(Node* node) {
+        if (node == nullptr) {
+            return;
+        }
+        std::cout << node->data << " ";
+        preorderTraversal(node->left);
+        preorderTraversal(node->right);
+    }
+    
+    void preorder() {
+        preorderTraversal(root);
+        std::cout << std::endl;
+    }
+
 };
     
     
@@ -63,6 +78,9 @@ int main() {
     std::cout<< "Inserted Elements: 50, 30, 20, 40, 70, 60, 80 \n";
     std::cout << "Inorder Traversal: ";
     bst.inorder();
+    
+    std::cout << "Preorder Traversal: ";
+    bst.preorder();
 
     return 0;
 }
