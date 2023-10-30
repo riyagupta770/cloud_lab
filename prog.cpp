@@ -60,6 +60,21 @@ class BinarySearchTree {
         preorderTraversal(root);
         std::cout << std::endl;
     }
+    
+    void postorderTraversal(Node* node) {
+        if (node == nullptr) {
+            return;
+        }
+        postorderTraversal(node->left);
+        postorderTraversal(node->right);
+        std::cout << node->data << " ";
+    }
+    
+    void postorder() {
+        postorderTraversal(root);
+        std::cout << std::endl;
+    }
+
 
 };
     
@@ -81,6 +96,9 @@ int main() {
     
     std::cout << "Preorder Traversal: ";
     bst.preorder();
+    
+    std::cout << "Postorder Traversal: ";
+    bst.postorder();
 
     return 0;
 }
