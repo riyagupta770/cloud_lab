@@ -84,6 +84,32 @@ class BinarySearchTree {
         return std::max(leftHeight, rightHeight) + 1;
     }
 
+    void levelOrderTraversal() {
+        if (root == nullptr) {
+            return;
+        }
+
+        std::queue<Node*> q;
+        q.push(root);
+
+        std::cout << "Level Order Traversal: ";
+        while (!q.empty()) {
+            Node* current = q.front();
+            std::cout << current->data << " ";
+            q.pop();
+
+            if (current->left != nullptr) {
+                q.push(current->left);
+            }
+
+            if (current->right != nullptr) {
+                q.push(current->right);
+            }
+        }
+
+        std::cout << std::endl;
+    }
+
 };
     
     
@@ -110,6 +136,8 @@ int main() {
 
     int treeHeight = bst.getHeight();
     std::cout << "Height of the BST: " << treeHeight << std::endl;
+
+    bst.levelOrderTraversal();
 
     return 0;
 }
